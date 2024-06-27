@@ -14,14 +14,14 @@ class ProfileScreen extends StatelessWidget {
       body: ListView(children: [
         ListTile(
            
-        leading:Image.asset("asset/person.jpg",
+        leading:Image.asset("asset/Dhanush.jpg",
         width: 60,
         height: 80,
         fit: BoxFit.cover,
         ),
         
           title:  Text(
-            "William John Malik",
+            "Dhanush",
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
           ),
           subtitle:  Text("Aggressive Investor"),
