@@ -1,30 +1,36 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:sample_pro_1/linkedinloginpage.dart';
+import 'package:sample_pro_1/splashscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:flutter/widgets.dart';
 
+class ProfileScreen extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
+  ProfileScreen({super.key});
 
-class ProfileScreen extends StatelessWidget {
-   // ignore: prefer_const_constructors_in_immutables
-   ProfileScreen({super.key});
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
 
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: ListView(children: [
         ListTile(
-           
-        leading:Image.asset("asset/Dhanush.jpg",
-        width: 60,
-        height: 80,
-        fit: BoxFit.cover,
-        ),
-        
-          title:  Text(
+          leading: Image.asset(
+            "asset/Dhanush.jpg",
+            width: 60,
+            height: 80,
+            fit: BoxFit.cover,
+          ),
+          title: Text(
             "Dhanush",
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
           ),
-          subtitle:  Text("Aggressive Investor"),
+          subtitle: Text("Aggressive Investor"),
         ),
         // const Padding(
         //   padding: EdgeInsets.all(15),
@@ -40,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                  color:  Color.fromARGB(255, 236, 244, 248),
+                  color: Color.fromARGB(255, 236, 244, 248),
                   borderRadius: BorderRadius.circular(18)),
               child: Icon(
                 Icons.person,
@@ -63,20 +69,20 @@ class ProfileScreen extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                  color:  Color.fromARGB(255, 236, 244, 248),
+                  color: Color.fromARGB(255, 236, 244, 248),
                   borderRadius: BorderRadius.circular(18)),
               child: Icon(
                 Icons.settings,
                 color: Color.fromARGB(255, 9, 99, 218),
               ),
             ),
-            title:  Text(
+            title: Text(
               "Settings",
               style: TextStyle(
                   color: Color.fromARGB(255, 9, 99, 218),
                   fontWeight: FontWeight.w600),
             ),
-            trailing:  Icon(Icons.chevron_right),
+            trailing: Icon(Icons.chevron_right),
           ),
         ),
         Padding(
@@ -201,11 +207,29 @@ class ProfileScreen extends StatelessWidget {
             trailing: const Icon(Icons.chevron_right),
           ),
         ),
+        Padding(
+            padding: EdgeInsets.only(top: 20,right: 30,left: 30),
+            child: MaterialButton(
+              color: Colors.blue,
+              onPressed: () {
+                  
+               deletingString();
+              
+              },
+              child: Text(
+                "Logout",
+                style: TextStyle(color: Colors.white),
+              ),
+              height: 50,
+              minWidth: 80,
+            ),
+          ),
         Container(
-          margin:const EdgeInsets.all(30),
+          margin: const EdgeInsets.all(30),
           height: 40,
           width: 40,
-          decoration: const BoxDecoration(color: Color.fromARGB(255, 166, 216, 252)),
+          decoration:
+              const BoxDecoration(color: Color.fromARGB(255, 166, 216, 252)),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -223,5 +247,14 @@ class ProfileScreen extends StatelessWidget {
         )
       ]),
     );
+  }
+
+  void deletingString() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("User");
+    prefs.remove("Pass");
+    prefs.setString("Go", "0");
+     Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen(),));
+ 
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:sample_pro_1/home.dart';
 //import 'package:sample_pro_1/profilemenu.dart';
-import 'package:sample_pro_1/linkedinloginpage.dart';
+// import 'package:sample_pro_1/linkedinloginpage.dart';
 import 'package:sample_pro_1/splashscreen.dart';
 //import 'package:sample_pro_1/telegram.dart';
 
@@ -24,9 +24,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const HomeScreen()
+      //home : LoginPage(),
       home : SplashScreen(),
     );
   }
 }
+
 
 

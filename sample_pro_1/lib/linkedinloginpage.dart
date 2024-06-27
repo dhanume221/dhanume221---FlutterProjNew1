@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sample_pro_1/profilemenu.dart';
+import 'package:sample_pro_1/function.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  
   @override
   Widget build(BuildContext context) {
     String hardcodedUsername = "user";
@@ -62,6 +71,8 @@ class LoginPage extends StatelessWidget {
                 //   ],
                 // ),
                 // ));
+                storingDatatoPreff(usernameController.text,passwordController.text);
+                retrievingData();
                  Navigator.push(
                           context, 
                           MaterialPageRoute(
@@ -94,4 +105,11 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+
+  Future <void> storingDatatoPreff(String a,String b) async{
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setString("User", a.toString());
+  prefs.setString("Pass", b.toString());
+  prefs.setString("Go", "1");
+}
 }
