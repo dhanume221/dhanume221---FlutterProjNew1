@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample_pro_1/profilemenu.dart';
 import 'package:sample_pro_1/function.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sample_pro_1/function.dart';
 //import 'package:sample_pro_1/linkedinloginpage.dart';
 import 'package:sample_pro_1/splashscreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:flutter/widgets.dart';
 
 class ProfileScreen extends StatefulWidget {
