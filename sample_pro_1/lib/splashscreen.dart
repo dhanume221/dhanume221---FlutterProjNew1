@@ -1,6 +1,7 @@
 // import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
 
 import 'package:flutter/material.dart';
+import 'package:sample_pro_1/function.dart';
 import 'package:sample_pro_1/linkedinloginpage.dart';
 import 'package:sample_pro_1/profilemenu.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,14 +20,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState(){
      super.initState();
-     retrievingData();
+     moveToNext();
      
     print("Init state called");
   }
 
  void moveToNext() async{
     await Future.delayed(Duration(seconds: 3));
-    if(val=="1")
+    final bool isloggedin = await gettingBoolData();
+    if(isloggedin)
     {
    Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),));
  
@@ -63,11 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   
-void retrievingData() async{
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  val = prefs.getString("Go");
-  // print(name);
-moveToNext();
 
 }
-}
+
+

@@ -1,19 +1,21 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future <void> storingDatatoPreff(bool isuserloggedin) async{
+Future<void> storingDatatoPreff(bool isuserloggedin) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool("isloggedin", isuserloggedin);
-
 }
 
-void retrievingData() async{
+Future<bool> gettingBoolData() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  final String? name = prefs.getString("isloggedin");
-  print(name);
+  bool? data = prefs.getBool("isloggedin");
+  if(data == null){
+    data = false;
+  }
+
+  return data;
 }
 
-void deletingString()async{
+void deletingString() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.remove("isloggedin");
 }
-

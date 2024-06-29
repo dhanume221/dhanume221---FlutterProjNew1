@@ -1,5 +1,6 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sample_pro_1/function.dart';
 //import 'package:sample_pro_1/linkedinloginpage.dart';
 import 'package:sample_pro_1/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -211,9 +212,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             padding: EdgeInsets.only(top: 20,right: 30,left: 30),
             child: MaterialButton(
               color: Colors.blue,
-              onPressed: () {
+              onPressed: () async{
                   
-               deletingString();
+               await storingDatatoPreff(false);
+               Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen(),));
               
               },
               child: Text(
@@ -249,12 +251,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  void deletingString() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove("User");
-    prefs.remove("Pass");
-    prefs.setString("Go", "0");
-     Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen(),));
- 
-  }
+  
+  
 }
