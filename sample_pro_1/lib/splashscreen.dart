@@ -15,17 +15,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-   var val;
+   
   @override
   void initState(){
      super.initState();
      moveToNext();
      
-    print("Init state called");
   }
 
  void moveToNext() async{
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 2));
     final bool isloggedin = await gettingBoolData();
     if(isloggedin)
     {

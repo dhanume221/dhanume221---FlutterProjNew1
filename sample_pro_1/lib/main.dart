@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_pro_1/Student_reg.dart';
 //import 'package:sample_pro_1/home.dart';
 //import 'package:sample_pro_1/profilemenu.dart';
 // import 'package:sample_pro_1/linkedinloginpage.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       ),
       //home: const HomeScreen()
       //home : LoginPage(),
-      home : SplashScreen(),
+      home : StudentReg(),
+      //home : SplashScreen()
     );
   }
 }
